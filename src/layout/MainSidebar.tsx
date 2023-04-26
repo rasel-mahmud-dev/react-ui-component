@@ -23,7 +23,7 @@ const sidebarItems = [
         children: [
             { to: "/docs/buttons", label: "Buttons", icon:  <BiDownload fontSize={16} />},
             { to: "/docs/collapse", label: "Collapse", icon:  <BiDownload fontSize={16} />},
-            { to: "/", label: "Getting Start", icon:  <BiDownload fontSize={16} />}
+            { to: "/docs/tabs", label: "Tabs", icon:  <BiDownload fontSize={16} />}
         ]
     },
     { to: "/", label: "Getting Start", icon:  <BiDownload fontSize={16} />},

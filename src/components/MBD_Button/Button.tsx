@@ -23,6 +23,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement>{
     block?: boolean,
     rounded?: boolean;
     outline?: boolean;
+    text?: boolean;
     size?: 'sm' | 'lg';
     tag?: React.ComponentProps<any>;
     href?: string;
@@ -41,6 +42,7 @@ const Button: FC<ButtonProps> = (props) => {
         tag = "button",
         floating = false,
         href,
+        text,
         className,
         children
     }  = props
@@ -64,7 +66,7 @@ const Button: FC<ButtonProps> = (props) => {
         btnColor = '';
     }
 
-    if(href) {
+    if(href || text) {
         btnColor = 'btn-link';
     }
 

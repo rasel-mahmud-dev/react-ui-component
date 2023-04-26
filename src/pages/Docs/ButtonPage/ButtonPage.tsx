@@ -1,9 +1,11 @@
 
 import Button from "@app/components/Button/Button.tsx";
 import MdbButton from "../../../components/MBD_Button/Button.tsx";
-import {BiHeart} from "react-icons/bi";
+import {BiCode, BiHeart} from "react-icons/bi";
 import {FiFacebook, FiGithub, FiInstagram} from "react-icons/all";
 import useGetActiveHash from "@app/hooks/useGetActiveHash";
+import CodeView from "@app/components/CodeView/CodeView.tsx";
+import DocsPageLayout from "@app/pages/Docs/DocsPageLayout.tsx";
 
 const overviewContent = [
     {label: "Default button", hash: "#default-button"},
@@ -21,12 +23,9 @@ const ButtonPage = () => {
 
     const {activeHash, location }  = useGetActiveHash()
 
-
     return (
-        <div className="w-full docs-content">
+        <DocsPageLayout pageTitle="Buttons" overviewContent={overviewContent} activeHash={activeHash} location={location}>
 
-            <div className="grid grid-cols-12">
-                <div className="col-span-10">
                     <section id="default-button">
                         <h4 className="mt-8 mb-2">Button</h4>
                         <div className=" grid grid-cols-4 w-max gap-4" >
@@ -39,6 +38,10 @@ const ButtonPage = () => {
                         <Button>Button</Button>
                         <Button className="border-blue-400 bg-white">Button</Button>
                     </div>
+
+
+
+
                     </section>
 
                     <section id="mdb-button">
@@ -53,6 +56,31 @@ const ButtonPage = () => {
                         <MdbButton color="dark">Button</MdbButton>
                         <MdbButton color="light">Button</MdbButton>
                     </div>
+
+                        <div className="border-t py-10 mt-10">
+                            <MdbButton text className="flex items-center gap-x-1">
+                                <BiCode fontSize={18} />
+                                <span>Show Code</span>
+                            </MdbButton>
+
+
+                            <CodeView code={`
+<MdbButton>Button</MdbButton>
+<MdbButton className="text-white" color="secondary">Button</MdbButton>
+<MdbButton className="text-white" color="success">Button</MdbButton>
+<MdbButton color="danger">Button</MdbButton>
+<MdbButton color="info">Button</MdbButton>
+<MdbButton color="warning">Button</MdbButton>
+<MdbButton color="dark">Button</MdbButton>
+<MdbButton color="light">Button</MdbButton>
+                            
+                            `}
+                                lang="html"
+                            />
+
+
+                        </div>
+
                     </section>
 
                     <section id="neutral-button">
@@ -147,22 +175,7 @@ const ButtonPage = () => {
                         </MdbButton>
                     </div>
                         </section>
-                </div>
-
-
-                {/**** overview section *****/}
-                <div className="col-span-2">
-                    <div className="sticky-overview-content">
-                        {overviewContent.map(content=>(
-                            <div className={`content-item ${activeHash === content.hash ? "active-border-left" : ""}`}>
-                                <a href={`${location.pathname}${content.hash}`}>{content.label}</a>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        </DocsPageLayout>
     );
 };
 

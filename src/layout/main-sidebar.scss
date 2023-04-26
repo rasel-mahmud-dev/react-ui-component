@@ -1,10 +1,10 @@
 :root{
-    --sidebar-width: 300px
+    --sidebar-width: 240px
 }
 .main-sidebar{
     width: var(--sidebar-width);
     background-color: #f3f3f3;
-    box-shadow: 2px 2px 30px -6px #656565;
+    //box-shadow: 2px 2px 30px -6px #656565;
     height:  calc(100vh - var(--header-height));
     .collapse-item{
         padding: 10px 10px 10px 16px;
