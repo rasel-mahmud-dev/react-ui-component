@@ -1,20 +1,23 @@
-import React, {ReactHTMLElement} from "react";
+import {FC, HTMLAttributes} from "react";
 
 import "./button.scss"
 
-interface ButtonProps extends ReactHTMLElement<HTMLButtonElement>{
+interface ButtonProps extends HTMLAttributes<HTMLButtonElement>{
     label?: string
-    children: React.ReactNode | string | number | null
-    className?: string
+    outline?: string
 }
 
-const Button  = (props: ButtonProps)  => {
-    const {className} = props
+const Button: FC<ButtonProps>  = (props)  => {
+    const {className, outline} = props
+
+    let outlineClass = ""
+    if(outline){
+        outlineClass += `border border-${outline}`
+    }
 
     return (
-        <div className={`btn ${className}`}>
+        <div className={`btn ${className} ${outlineClass} `}>
             {props.children}
-
         </div>
     );
 };

@@ -1,0 +1,15 @@
+.collapse-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 2px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    &:hover{
+        background-color: #14a44d;
+    }
+}
+.nested-collapse{
+    padding-left: 30px;
+}

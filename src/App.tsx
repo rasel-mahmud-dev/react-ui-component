@@ -1,15 +1,13 @@
 
-import './App.css'
-import Button from "./components/Button/Button.tsx";
+import './App.scss'
+import {RouterProvider} from "react-router-dom";
+import routes from "@app/Routes/routes.tsx";
 
 function App() {
 
   return (
     <div>
-
-
-        <Button>Button</Button>
-
+        <RouterProvider router={routes} />
     </div>
   )
 }

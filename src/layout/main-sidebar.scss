@@ -1,0 +1,26 @@
+:root{
+    --sidebar-width: 300px
+}
+.main-sidebar{
+    width: var(--sidebar-width);
+    background-color: #f3f3f3;
+    box-shadow: 2px 2px 30px -6px #656565;
+    height:  calc(100vh - var(--header-height));
+    .collapse-item{
+        padding: 10px 10px 10px 16px;
+    }
+    position: fixed;
+    left: 0;
+}
+
+.main-content{
+    margin-left: var(--sidebar-width);
+    padding-left: 20px;
+    width: 100%;
+
+
+    .sticky-overview-content{
+        position: sticky;
+        top: calc(2 * var(--header-height));
+    }
+}
