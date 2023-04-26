@@ -8,7 +8,7 @@ interface Props {
     pageTitle: string,
     overviewContent: OverviewContent[]
     activeHash: string
-    children: ReactElement | string
+    children: ReactElement[] | string
     location: any
 }
 

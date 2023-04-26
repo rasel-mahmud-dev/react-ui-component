@@ -11,9 +11,8 @@ const CollapsePage = () => {
     return (
         <DocsPageLayout pageTitle="Buttons" overviewContent={overviewContent} activeHash={activeHash} location={location}>
 
-
-        <div className="container">
-                <h4 className="mt-8 mb-2">Button</h4>
+        <div className="">
+                <h4 className="mt-8 mb-2">Collapse</h4>
                 <div className=" grid grid-cols-4 w-max gap-4" >
                     <Button>Button</Button>
                     <Button>Button</Button>
