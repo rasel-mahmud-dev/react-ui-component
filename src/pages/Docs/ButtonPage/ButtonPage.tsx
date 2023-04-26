@@ -3,15 +3,25 @@ import Button from "@app/components/Button/Button.tsx";
 import MdbButton from "../../../components/MBD_Button/Button.tsx";
 import {BiHeart} from "react-icons/bi";
 import {FiFacebook, FiGithub, FiInstagram} from "react-icons/all";
-
+import useGetActiveHash from "@app/hooks/useGetActiveHash";
 
 const overviewContent = [
     {label: "Default button", hash: "#default-button"},
+    {label: "MDB button", hash: "#mdb-button"},
     {label: "Neutral button", hash: "#neutral-button"},
+    {label: "Outline button", hash: "#outline-button"},
+    {label: "Rounded button", hash: "#rounded-button"},
+    {label: "Link button", hash: "#link-button"},
+    {label: "With Icon button", hash: "#with-icon-button"},
     {label: "Icon button", hash: "#icon-button"},
+    {label: "Floating button", hash: "#floating-button"},
 ]
 
 const ButtonPage = () => {
+
+    const {activeHash, location }  = useGetActiveHash()
+
+
     return (
         <div className="w-full docs-content">
 
@@ -31,8 +41,6 @@ const ButtonPage = () => {
                     </div>
                     </section>
 
-
-
                     <section id="mdb-button">
                         <h4 className="mt-8 mb-2">MDB Button</h4>
                         <div className="grid grid-cols-4 w-max gap-2">
@@ -47,7 +55,6 @@ const ButtonPage = () => {
                     </div>
                     </section>
 
-
                     <section id="neutral-button">
                         <h4 className="mt-8 mb-2">MDB Neutral  Button </h4>
                         <div className="grid grid-cols-4 w-max gap-2">
@@ -55,7 +62,6 @@ const ButtonPage = () => {
                             <MdbButton color="light">Button</MdbButton>
                         </div>
                     </section>
-
 
                     <section id="outline-button">
                         <h4 className="mt-8 mb-2">MDB Outline Button</h4>
@@ -70,7 +76,6 @@ const ButtonPage = () => {
                             <MdbButton outline={true} color="light">Button</MdbButton>
                         </div>
                     </section>
-
 
                    <section id="rounded-button">
                        <h4 className="mt-8 mb-2">MDB Rounded Button</h4>
@@ -149,7 +154,7 @@ const ButtonPage = () => {
                 <div className="col-span-2">
                     <div className="sticky-overview-content">
                         {overviewContent.map(content=>(
-                            <div>
+                            <div className={`content-item ${activeHash === content.hash ? "active-border-left" : ""}`}>
                                 <a href={`${location.pathname}${content.hash}`}>{content.label}</a>
                             </div>
                         ))}
