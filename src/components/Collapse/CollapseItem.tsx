@@ -1,29 +1,45 @@
-import React, {FC, ReactElement} from 'react';
+import React, {FC, ReactNode} from 'react';
 import clsx from "clsx";
-interface Props {
+
+export interface CollapseItemProps {
     icon?: (isActive: boolean)=>React.ReactNode
+    prefixIcon?: React.ReactNode
     isActive?: boolean
-    label: string
+    label: ((isActive: boolean)=> React.ReactNode) | string
     className?: string
-    onToggle: ()=>void,
-    children: ReactElement | string
+    onToggle?: ()=>void,
+    onClick?: ()=>void,
+    children: ReactNode | string
 }
 
-const CollapseItem : FC<Props> = (props) => {
+const CollapseItem : FC<CollapseItemProps> = (props) => {
 
-    const {icon, onToggle, isActive, label, children, className} = props
+    const {icon, prefixIcon, onClick, onToggle, isActive, label, children, className} = props
 
     const classes = clsx(
         className,
-        "collapse-item"
+        typeof label !== "function" && "collapse-item",
+        !!isActive && "collapse-item-active"
     )
+
+    function handleToggle(){
+        if(children){
+            onToggle && onToggle()
+        }
+
+        onClick && onClick()
+    }
 
     return (
         <div>
-            <div onClick={onToggle} className={classes}>
-                {label}
-                {icon ? icon(!!isActive) : null}
+            <div onClick={handleToggle} className={classes}>
+                <div className="flex items-center gap-x-4">
+                    {prefixIcon && prefixIcon}
+                    {typeof label === "function" ? label(!!isActive) : label}
+                </div>
+                {children && ( icon ? icon(!!isActive) : null)}
             </div>
+
             {isActive && (
                  children
             )}

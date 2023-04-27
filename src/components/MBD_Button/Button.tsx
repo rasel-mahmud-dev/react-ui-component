@@ -14,6 +14,7 @@ type ButtonColor  = 'primary'
     | 'info'
     | 'none'
     | 'link'
+    | 'theme'
     | undefined
     | 'tertiary';
 
@@ -28,6 +29,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement>{
     tag?: React.ComponentProps<any>;
     href?: string;
     floating?: boolean
+    type?: "submit" | "button" | "reset"
 }
 
 
@@ -44,7 +46,9 @@ const Button: FC<ButtonProps> = (props) => {
         href,
         text,
         className,
-        children
+        children,
+        type = "button",
+        ...attr
     }  = props
 
    // const [isActive, setActive] = useState(active ? active : false);
@@ -66,7 +70,10 @@ const Button: FC<ButtonProps> = (props) => {
         btnColor = '';
     }
 
-    if(href || text) {
+    if(text) {
+        btnColor = 'btn-text';
+    }
+    if(href) {
         btnColor = 'btn-link';
     }
 
@@ -88,7 +95,7 @@ const Button: FC<ButtonProps> = (props) => {
 
 
     return (
-        <Tag className={classes}>
+        <Tag className={classes} type={type} {...attr}>
             {children}
         </Tag>
     );

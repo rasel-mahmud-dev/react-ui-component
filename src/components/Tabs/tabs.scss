@@ -13,7 +13,7 @@
       padding: 2px 10px;
       position: relative;
 
-      &.tab-active{
+      &.tab-item-active{
         background-color: #ececec;
       }
     }
@@ -32,7 +32,7 @@
       .tab-item{
 
 
-        &.tab-active{
+        &.tab-item-active{
           background-color: transparent;
           color: #3b71ca;
 

@@ -1,0 +1,21 @@
+/**** Input component global classes ***************/
+.input-group {
+  @apply flex flex-col relative;
+  label {
+    color: #737373;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 2px;
+
+  }
+
+  .input {
+    font-size: 14px;
+    @apply border focus:border-primary-400 border-neutral-600/20 outline-none rounded-md py-1.5 px-3 text-gray-700 transition transition-colors
+  }
+
+  .custom-input {
+    @apply border  focus:border-primary-400 border-neutral-600/20 outline-none rounded-md py-1.5 px-3 text-gray-700 transition transition-colors
+  }
+
+}

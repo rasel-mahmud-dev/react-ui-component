@@ -1,4 +1,4 @@
-import React, {FC, HTMLAttributes, ReactElement, useState} from 'react';
+import {FC, HTMLAttributes, ReactElement, useState} from 'react';
 import Tab, {TabProps} from "@app/components/Tabs/Tab";
 
 import './tabs.scss'
@@ -22,8 +22,6 @@ const Tabs: CustomFC<Props> = (props) => {
     function handleOpenTab(index: number){
         setOpenTab(index)
     }
-
-    console.log(openTab)
 
 
     return (

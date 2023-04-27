@@ -9,12 +9,18 @@ html{
 }
 
 :root{
-    --header-height: 100px
+    --header-height: 100px;
+    --primary-300: #ff7644;
+    --primary-400: #ff713d;
+    --primary-500: #ff6e37;
+    --dark-300: #4B5563
 }
 
 
 .navigation{
-    background: #cdd8fa;
+     //background: #cdd8fa;
+     background: #ffdfd3;
+    //@apply bg-primary-400/20;
     padding: 10px 0;
     box-shadow: 0 2px 11px 0px #4545457d;
     position: fixed;
@@ -45,3 +51,8 @@ li{
     }
 }
 
+.body-para{
+    font-size: 14px;
+    color: #545454;
+    margin-top: 16px;
+}

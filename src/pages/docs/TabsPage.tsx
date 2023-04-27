@@ -1,7 +1,6 @@
-import React from 'react';
-import Button from "@app/components/Button/Button.tsx";
+
 import useGetActiveHash from "@app/hooks/useGetActiveHash.ts";
-import DocsPageLayout from "@app/pages/Docs/DocsPageLayout.tsx";
+import DocsPageLayout from "@app/pages/docs/DocsPageLayout.tsx";
 import Tabs from "@app/components/Tabs/Tabs.tsx";
 
 const overviewContent = [

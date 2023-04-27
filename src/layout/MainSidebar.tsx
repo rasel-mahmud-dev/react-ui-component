@@ -1,63 +1,138 @@
-import React from 'react';
 import "./main-sidebar.scss"
-import {BiChevronDown, BiChevronUp, BiDownload, FcInfo, SiVite} from "react-icons/all";
-import Button from "@app/components/MBD_Button/Button.tsx";
+import {
+    AiOutlineForm,
+    BiChevronDown,
+    BiChevronUp, BsDatabase,
+
+    FaBars, FaHome,
+    FcInfo, HiOutlineDownload, IoImageSharp, RiQuillPenLine,
+    SiVite,
+    TbComponents
+} from "react-icons/all";
+
 import Collapse from "@app/components/Collapse/Collapse.tsx";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const sidebarItems = [
-    { to: "/", label: "Getting Start",
-
+    {
+        to: "/",
+        label: "Home",
+        prefixIcon:  <FaHome fontSize={16} />,
+    },
+    {
+        label: "Getting Start",
+        prefixIcon:  <HiOutlineDownload fontSize={16} />,
         children: [
-            { to: "/docs/installation", label: "About RSL design", icon:  <FcInfo fontSize={16} />},
-            { to: "/docs/installation", label: "Installation", icon:  <BiDownload fontSize={16} />},
+            { to: "/docs", label: "About RSL UI", icon:  <FcInfo fontSize={16} />},
+            { to: "/docs/installation", label: "Installation"},
+            { to: "/docs/installation", label: "Optimization"},
             { to: "/docs/installation", label: "Vite", icon:  <SiVite fontSize={14} />},
-            { to: "/docs/installation", label: "Tutorial", icon:  <BiDownload fontSize={16} />},
+            { to: "/docs/installation", label: "Tutorial"},
+        ]
+
+    },    {
+        label: "Content & Styles",
+        prefixIcon:  <RiQuillPenLine fontSize={16} />,
+        children: [
+            { to: "/docs", label: "Colors"},
+            { to: "/docs/installation", label: "CSS variables"},
+            { to: "/docs/installation", label: "Divider"}
         ]
 
     },
 
     {
-        label: "Components",
-        icon:  <BiDownload fontSize={16} />,
+        label: "Navigation",
+        prefixIcon:  <FaBars fontSize={12} />,
         children: [
-            { to: "/docs/buttons", label: "Buttons", icon:  <BiDownload fontSize={16} />},
-            { to: "/docs/collapse", label: "Collapse", icon:  <BiDownload fontSize={16} />},
-            { to: "/docs/tabs", label: "Tabs", icon:  <BiDownload fontSize={16} />}
+            { to: "/docs/components/breadcrumb", label: "Breadcrumb"},
+            { to: "/docs/components/footer", label: "Footer"},
+            { to: "/docs/components/sidenav", label: "Sidenav"},
+            { to: "/docs/navigation/navbar", label: "Navigation"},
+            { to: "/docs/components/tabs", label: "Tabs"}
         ]
     },
-    { to: "/", label: "Getting Start", icon:  <BiDownload fontSize={16} />},
-    { to: "/", label: "Getting Start", icon:  <BiDownload fontSize={16} />},
-    { to: "/", label: "Getting Start", icon:  <BiDownload fontSize={16} />},
+    {
+        label: "Components",
+        prefixIcon:  <TbComponents fontSize={14} />,
+        children: [
+            { to: "/docs/components/buttons", label: "Buttons"},
+            { to: "/docs/components/collapse", label: "Collapse"},
+            { to: "/docs/components/tabs", label: "Tabs"},
+            { to: "/docs/components/avatar", label: "Avatar"}
+        ]
+    },
+
+    {
+        label: "Forms",
+        prefixIcon:  <AiOutlineForm fontSize={14} />,
+        children: [
+            { to: "/docs/forms/overview", label: "Overview"},
+            { to: "/docs/forms/input", label: "Input"},
+            { to: "/docs/forms/input-group", label: "Input group"},
+            { to: "/docs/components/textarea", label: "Autocomplete"},
+            { to: "/docs/components/checkbox", label: "File Picker"},
+            { to: "/docs/components/checkbox", label: "Checkbox"},
+            { to: "/docs/components/checkbox", label: "Switch"},
+            { to: "/docs/components/checkbox", label: "Range"},
+            { to: "/docs/components/checkbox", label: "Datepicker"},
+            { to: "/docs/components/checkbox", label: "Timepicker"},
+            { to: "/docs/components/search", label: "Search"},
+            { to: "/docs/components/validation", label: "Validation"},
+        ]
+    },
+    {
+        label: "Data",
+        prefixIcon:  <BsDatabase fontSize={14} />,
+        children: [
+            { to: "/docs/components/input", label: "Buttons"},
+        ]
+    },
+    {
+        label: "Templates",
+        prefixIcon:  <IoImageSharp fontSize={14} />,
+        children: [
+            { to: "/docs/components/input", label: "Buttons"},
+        ]
+    }
 ]
 
+
 const MainSidebar = () => {
+
+    const navigate = useNavigate()
+
+    function handleNavigate(item: {to?: string}){
+        if(item.to){
+            navigate(item.to)
+        }
+    }
+
+
     return (
         <div className="main-sidebar">
 
 
-            <Collapse initialExpand={[0, 1]}>
+            <Collapse initialExpand={[1]}>
                 {sidebarItems.map(item=>(
-                    <Collapse.Item label={item.label} icon={(isActive: boolean)=> !isActive ? <BiChevronDown /> : <BiChevronUp /> }>
-                        { item.children  ?  (
+                    <Collapse.Item onClick={()=>handleNavigate({to: item.to})} className="text-dark-300 !mx-2 rounded-md" label={item.label} prefixIcon={item.prefixIcon} icon={(isActive: boolean)=> !isActive ? <BiChevronDown /> : <BiChevronUp /> }>
+                        { item.children  &&  (
                             <div className="text-sm">
                                 {
                                     item.children.map(item2=>(
-                                        <h5 className="flex items-center cursor-pointer text-gray-700 py-2 pl-8 hover:bg-blue-400">
-                                            <span className="mr-1">{item2?.icon}</span>
-                                            { item2.to
-                                                ? <Link to={`${item2.to}`}>{item2.label}</Link>
-                                                : item2.label }
+                                         item2.to
+                                            ? (
+                                                <Link to={`${item2.to}`}>
+                                                <h5 className="collapse-item-h5 mx-2 rounded-md text-dark-300">
+                                                    {item2.label}
+                                                </h5>
+                                                </Link>
 
-                                        </h5>
+                                            )
+                                         :  <h5 className="collapse-item-h5 mx-2 rounded-md text-dark-300">{item2.label }</h5>
                                     ))
                                 }
                             </div>
-                            ) : (
-                                <Button className="flex items-center my-px" color="light" block={true}>
-                                    {item.icon}
-                                    <span className="ml-2">{item.label}</span>
-                                </Button>
                             )}
                     </Collapse.Item>
                 ))}
