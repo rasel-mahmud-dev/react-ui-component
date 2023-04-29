@@ -12,6 +12,8 @@ import FormPageOverview from "@app/pages/docs/Forms/FormPageOverview/FormPageOve
 import InputGroupPage from "@app/pages/docs/Forms/InputGroupPage/InputGroupPage.tsx";
 import AvatarPage from "@app/pages/docs/ComponentPage/AvatarPage.tsx";
 import NotFoundRoute from "@app/components/NotFoundRoute/NotFoundRoute.tsx";
+import AutoCompletePages from "@app/pages/docs/Forms/SearchInputPages/SearchInputPages";
+import SearchInputPages from "@app/pages/docs/Forms/SearchInputPages/SearchInputPages";
 
 const routes = createBrowserRouter([
     {
@@ -30,6 +32,7 @@ const routes = createBrowserRouter([
             { path: "/docs/forms/overview", element: <FormPageOverview />},
             { path: "/docs/forms/input-group", element: <InputGroupPage />},
             { path: "/docs/forms/input", element: <InputPage />},
+            { path: "/docs/forms/search-input", element: <SearchInputPages />},
             { path: "/docs/components/avatar", element: <AvatarPage />}
         ]
     },

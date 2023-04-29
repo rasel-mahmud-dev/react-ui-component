@@ -70,7 +70,7 @@ const sidebarItems = [
             { to: "/docs/forms/overview", label: "Overview"},
             { to: "/docs/forms/input", label: "Input"},
             { to: "/docs/forms/input-group", label: "Input group"},
-            { to: "/docs/components/textarea", label: "Autocomplete"},
+            { to: "/docs/forms/search-input", label: "Search Input"},
             { to: "/docs/components/checkbox", label: "File Picker"},
             { to: "/docs/components/checkbox", label: "Checkbox"},
             { to: "/docs/components/checkbox", label: "Switch"},
