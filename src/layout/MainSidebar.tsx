@@ -59,7 +59,9 @@ const sidebarItems = [
             { to: "/docs/components/buttons", label: "Buttons"},
             { to: "/docs/components/collapse", label: "Collapse"},
             { to: "/docs/components/tabs", label: "Tabs"},
-            { to: "/docs/components/avatar", label: "Avatar"}
+            { to: "/docs/components/avatar", label: "Avatar"},
+            { to: "/docs/components/modal", label: "Modal"},
+            { to: "/docs/components/multi-modal", label: "Multi Modal"}
         ]
     },
 
@@ -115,7 +117,7 @@ const MainSidebar = () => {
 
             <Collapse initialExpand={[1]}>
                 {sidebarItems.map(item=>(
-                    <Collapse.Item onClick={()=>handleNavigate({to: item.to})} className="text-dark-300 !mx-2 rounded-md" label={item.label} prefixIcon={item.prefixIcon} icon={(isActive: boolean)=> !isActive ? <BiChevronDown /> : <BiChevronUp /> }>
+                    <Collapse.Item onClick={()=>handleNavigate({to: item.to})} className="text-dark-200 !mx-2 rounded-md" label={item.label} prefixIcon={item.prefixIcon} icon={(isActive: boolean)=> !isActive ? <BiChevronDown /> : <BiChevronUp /> }>
                         { item.children  &&  (
                             <div className="text-sm">
                                 {
@@ -123,7 +125,7 @@ const MainSidebar = () => {
                                          item2.to
                                             ? (
                                                 <Link to={`${item2.to}`}>
-                                                <h5 className="collapse-item-h5 mx-2 rounded-md text-dark-300">
+                                                <h5 className="collapse-item-h5 mx-2 rounded-md text-dark-200">
                                                     {item2.label}
                                                 </h5>
                                                 </Link>

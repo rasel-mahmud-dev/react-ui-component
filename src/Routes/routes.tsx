@@ -14,6 +14,8 @@ import AvatarPage from "@app/pages/docs/ComponentPage/AvatarPage.tsx";
 import NotFoundRoute from "@app/components/NotFoundRoute/NotFoundRoute.tsx";
 import AutoCompletePages from "@app/pages/docs/Forms/SearchInputPages/SearchInputPages";
 import SearchInputPages from "@app/pages/docs/Forms/SearchInputPages/SearchInputPages";
+import ModalPage from "@app/pages/docs/ModalPage/ModalPage.tsx";
+import MultiModalPage from "@app/pages/docs/MultiModalPage/MultiModalPage.tsx";
 
 const routes = createBrowserRouter([
     {
@@ -33,7 +35,11 @@ const routes = createBrowserRouter([
             { path: "/docs/forms/input-group", element: <InputGroupPage />},
             { path: "/docs/forms/input", element: <InputPage />},
             { path: "/docs/forms/search-input", element: <SearchInputPages />},
-            { path: "/docs/components/avatar", element: <AvatarPage />}
+            { path: "/docs/components/avatar", element: <AvatarPage />},
+
+            { path: "/docs/components/modal", element: <ModalPage />},
+            { path: "/docs/components/multi-modal", element: <MultiModalPage />},
+
         ]
     },
     {
