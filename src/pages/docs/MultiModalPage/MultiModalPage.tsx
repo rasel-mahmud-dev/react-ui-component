@@ -2,13 +2,17 @@
 import useGetActiveHash from "@app/hooks/useGetActiveHash.ts";
 import DocsPageLayout from "@app/pages/docs/DocsPageLayout.tsx";
 import "./style.scss";
-import {Suspense, useState} from "react";
+import React, {Suspense, useState} from "react";
 import Loading from "@app/components/Loading/Loading.tsx";
 
 import {CSSTransition} from "react-transition-group"
 import Button from "@app/components/MBD_Button/Button.tsx";
 import {TiTimes} from "react-icons/all";
 import MultiStepModal from "@app/components/MultiStepModal/MultiStepModal.tsx";
+import Collapse from "@app/components/Collapse/Collapse.tsx";
+import MdbButton from "@app/components/MBD_Button/Button.tsx";
+import {BiCode} from "react-icons/bi";
+import CodeView from "@app/components/CodeView/CodeView.tsx";
 
 
 const overviewContent = [
@@ -24,9 +28,9 @@ const MultiModalPage = () => {
 
 
     return (
-        <DocsPageLayout pageTitle="Multi Modal Page" overviewContent={overviewContent} activeHash={activeHash} location={location}>
+        <DocsPageLayout pageTitle="Multi Step Modal" overviewContent={overviewContent} activeHash={activeHash} location={location}>
             <section id="default-button">
-                <h4 className="mt-8 mb-2">MultiModalPage</h4>
+                <h4 className="mt-8 mb-2">Multi Step Modal</h4>
                 <div>
 
                     <div>
@@ -58,9 +62,68 @@ const MultiModalPage = () => {
                         </MultiStepModal>
 
                     </div>
-
-
                 </div>
+
+
+                <div className="border-t pb-4 mt-4">
+                    <Collapse initialExpand={[]}>
+                        <Collapse.Item label={(isOpen: boolean)=>(
+                            <MdbButton text className="flex items-center gap-x-1">
+                                <BiCode fontSize={18} />
+                                <span className="text-red-400">{isOpen ? "Hide" : "Show"} Code</span>
+                            </MdbButton>
+                        )}>
+                            <CodeView lang="jsx" code={`
+
+
+import "./style.scss";
+import React, {Suspense, useState} from "react";
+import Loading from "@app/components/Loading/Loading.tsx";
+
+import {CSSTransition} from "react-transition-group"
+import Button from "@app/components/MBD_Button/Button.tsx";
+import MultiStepModal from "@app/components/MultiStepModal/MultiStepModal.tsx";
+
+
+const MultiModalPage = () => {
+    const [modalId, setModalId] = useState(0)
+    
+    return (
+        <div>
+              <Button onClick={()=>setModalId(1)}>
+                 Open Modal
+              </Button>
+              
+                <MultiStepModal isOpen={!!modalId} className="" >
+                
+                    <CSSTransition unmountOnExit={true} in={modalId === 1} timeout={400} classNames="modal_content">
+                        <div>
+                            <BasicModal setModalId={setModalId} />
+                        </div>
+                    </CSSTransition>
+                
+                    <CSSTransition unmountOnExit={true} in={modalId === 2} timeout={400} classNames="modal_content">
+                        <div>
+                            <Suspense fallback={<Loading/>}>
+                                <AddUserModal
+                                    setModalId={setModalId}
+                                />
+                            </Suspense>
+                        </div>
+                    </CSSTransition>
+                
+                </MultiStepModal>
+            </div>
+        )
+    }
+`}
+
+                            />
+                        </Collapse.Item>
+
+                    </Collapse>
+                </div>
+
             </section>
 
         </DocsPageLayout>

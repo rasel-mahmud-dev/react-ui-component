@@ -3,6 +3,10 @@ import DocsPageLayout, {OverviewContent} from "@app/pages/docs/DocsPageLayout.ts
 import useGetActiveHash from "@app/hooks/useGetActiveHash.ts";
 import Calendar from "@app/components/Calendar/Calendar.tsx";
 import dayjs from "dayjs";
+import Collapse from "@app/components/Collapse/Collapse.tsx";
+import MdbButton from "@app/components/MBD_Button/Button.tsx";
+import {BiCode} from "react-icons/bi";
+import CodeView from "@app/components/CodeView/CodeView.tsx";
 
 const overviewContent: OverviewContent[] = [
     {label: "Basic", hash: "#basic-calendar"},
@@ -38,6 +42,52 @@ const CalendarPage = () => {
                     <div className="card max-w-md ">
                         <Calendar className="rounded-md" onChange={handleDateChange1} value={selectedDate}/>
                     </div>
+
+
+                    <div className="border-t pb-4 mt-4">
+                        <Collapse initialExpand={[]}>
+                            <Collapse.Item label={(isOpen: boolean)=>(
+                                <MdbButton text className="flex items-center gap-x-1">
+                                    <BiCode fontSize={18} />
+                                    <span className="text-red-400">{isOpen ? "Hide" : "Show"} Code</span>
+                                </MdbButton>
+                            )}>
+                                <CodeView lang="jsx" code={`
+
+
+import "./style.scss";
+import React, {Suspense, useState} from "react";
+import Calendar from "@app/components/Calendar/Calendar.tsx";
+
+
+const App = () => {
+    
+
+    const [selectedDate, setSelectedDate] = useState(new Date())
+
+
+    function handleDateChange(date: Date) {
+        setSelectedDate(date)
+    }
+    
+    
+    return (
+        <div>
+            <div className="card max-w-md ">
+                <Calendar className="rounded-md" onChange={handleDateChange} value={selectedDate}/>
+            </div>
+        </div>
+        )
+    }
+`}
+
+                                />
+                            </Collapse.Item>
+
+                        </Collapse>
+                    </div>
+
+
                 </section>
 
 
@@ -52,6 +102,50 @@ const CalendarPage = () => {
                 <div className="card max-w-md ">
                     <Calendar className="rounded-md" onChange={handleDateChange2} value={selectedDate2}/>
                 </div>
+
+                <div className="border-t pb-4 mt-4">
+                    <Collapse initialExpand={[]}>
+                        <Collapse.Item label={(isOpen: boolean)=>(
+                            <MdbButton text className="flex items-center gap-x-1">
+                                <BiCode fontSize={18} />
+                                <span className="text-red-400">{isOpen ? "Hide" : "Show"} Code</span>
+                            </MdbButton>
+                        )}>
+                            <CodeView lang="jsx" code={`
+
+
+import "./style.scss";
+import React, {Suspense, useState} from "react";
+import Calendar from "@app/components/Calendar/Calendar.tsx";
+
+
+const App = () => {
+    
+
+    const [selectedDate, setSelectedDate] = useState(new Date())
+
+
+    function handleDateChange(date: Date) {
+        setSelectedDate(date)
+    }
+    
+    
+    return (
+        <div>
+            <div className="card max-w-md ">
+                <Calendar className="rounded-md" onChange={handleDateChange} value={selectedDate}/>
+            </div>
+        </div>
+        )
+    }
+`}
+
+                            />
+                        </Collapse.Item>
+
+                    </Collapse>
+                </div>
+
             </section>
 
 
