@@ -16,6 +16,7 @@ import AutoCompletePages from "@app/pages/docs/Forms/SearchInputPages/SearchInpu
 import SearchInputPages from "@app/pages/docs/Forms/SearchInputPages/SearchInputPages";
 import ModalPage from "@app/pages/docs/ModalPage/ModalPage.tsx";
 import MultiModalPage from "@app/pages/docs/MultiModalPage/MultiModalPage.tsx";
+import CalendarPage from "@app/pages/docs/CalendarPage/CalendarPage.tsx";
 
 const routes = createBrowserRouter([
     {
@@ -39,6 +40,7 @@ const routes = createBrowserRouter([
 
             { path: "/docs/components/modal", element: <ModalPage />},
             { path: "/docs/components/multi-modal", element: <MultiModalPage />},
+            { path: "/docs/components/calendar", element: <CalendarPage />},
 
         ]
     },

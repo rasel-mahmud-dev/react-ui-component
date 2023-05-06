@@ -50,7 +50,8 @@ const usersList = [
 
 const overviewContent = [
     {label: "Avatar", hash: "#avatar"},
-    {label: "Avatar group", hash: "#avatar-group"}
+    {label: "Avatar group", hash: "#avatar-group"},
+    {label: "API", hash: "#api"}
 ]
 
 const AvatarPage = () => {
@@ -137,7 +138,8 @@ const usersList = [
 
 
             <section id="default-button">
-                <h4 className="pb-4 mt-4">Avatar group</h4>
+                <h4 className=" mt-4 page-subtitle">Avatar group</h4>
+                <p className="section-para pb-4">if avatar missing or fail to load for network request.</p>
                 <div className="" >
 
                     <Avatar imgClass="w-8 h-8 bg-dark-300/20" username={usersList[0].username} src={usersList[0].image[0]} />
@@ -217,10 +219,21 @@ const usersList = [
 
 
             <section id="default-button">
-                <h4 className="pb-4 mt-4">Avatar group Image Load Fail</h4>
+                <h4 className=" mt-4 page-subtitle">Avatar group</h4>
+                <p className="section-para pb-4">if avatar missing or fail to load for network request.</p>
                 <div className="" >
                     <AvatarGroup imgClass="user-avatar bg-dark-300 text-white text-sm" data={usersList.map(item=>({...item, image: ""}))} />
                 </div>
+            </section>
+
+
+
+            <section id="api" className="">
+                <div className="api-section">
+                <h4 className=" mt-4 page-subtitle">API</h4>
+                </div>
+
+
             </section>
         </DocsPageLayout>
     );

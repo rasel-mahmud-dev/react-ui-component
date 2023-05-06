@@ -61,7 +61,8 @@ const sidebarItems = [
             { to: "/docs/components/tabs", label: "Tabs"},
             { to: "/docs/components/avatar", label: "Avatar"},
             { to: "/docs/components/modal", label: "Modal"},
-            { to: "/docs/components/multi-modal", label: "Multi Modal"}
+            { to: "/docs/components/multi-modal", label: "Multi Modal"},
+            { to: "/docs/components/calendar", label: "Calendar"}
         ]
     },
 

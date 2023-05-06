@@ -27,7 +27,7 @@ const Avatar : FC<Props> = ({className = "", imgClass = "", username, src, ...at
             {src
                 ?
                 <img onError={handleErrorImage} src={src}
-                     className={`img rounded-full w-full ${imgClass}`}/>
+                     className={`img rounded-full ${imgClass}`}/>
 
                 : <div
                     className={`img rounded-full h-full w-full flex text-sm font-semibold items-center justify-center uppercase ${imgClass}`}>{userNameLetter}</div>
