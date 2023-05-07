@@ -3,7 +3,7 @@ import DocsPageLayout from "@app/pages/docs/DocsPageLayout.tsx";
 import Table, {Column} from "@app/components/Table/Table.tsx";
 import Collapse from "@app/components/Collapse/Collapse.tsx";
 import MdbButton from "@app/components/MBD_Button/Button.tsx";
-import {BiCode} from "react-icons/bi";
+import {BiCode, BiPen, BiTrash, BiTrashAlt} from "react-icons/bi";
 import CodeView from "@app/components/CodeView/CodeView.tsx";
 import React from "react";
 import ApiSection from "@app/components/ApiSection/ApiSection.tsx";
@@ -17,6 +17,14 @@ const overviewContent = [
 const TablePage = () => {
     const {activeHash, location} = useGetActiveHash()
 
+
+    function handleDeleteItem(itemId: string) {
+        alert("Handle Delete item ID:" + itemId)
+    }
+
+    function handleEditItem(itemId: string) {
+        alert("Handle Edit item ID:" + itemId)
+    }
 
     const columns: Column[] = [
         {
@@ -49,6 +57,24 @@ const TablePage = () => {
             dataIndex: "price",
             sorter: (args1, args2)=>args1 > args2 ? 1 : args1 < args2 ? -1 : 0,
             render: (price: number)=> "Tk " + price
+        },
+        {
+            id: "4",
+            title: "Actions",
+            dataIndex: "",
+            render: (_: unknown, item: {title: string, id: string})=> (
+                <div className="flex items-center gap-x-2">
+                    <MdbButton onClick={()=>handleEditItem(item.id)} className="flex items-center gap-x-1">
+                        <BiPen fontSize={18}/>
+                        <span>Edit</span>
+                    </MdbButton>
+
+                    <MdbButton onClick={()=>handleDeleteItem(item.id)} color="danger" className="flex items-center gap-x-1">
+                            <BiTrashAlt fontSize={18}/>
+                            <span>Delete</span>
+                        </MdbButton>
+                </div>
+            )
         },
     ]
 

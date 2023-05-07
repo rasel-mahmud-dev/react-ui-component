@@ -20,6 +20,7 @@
 .table-fixed {
     /*max-height: 300px;*/
     overflow: auto;
+
 }
 
 .table-fixed table {
@@ -34,8 +35,8 @@
 .table-fixed thead tr  {
     position: sticky !important;
     top: 0;
-    z-index: 1;
     background: white;
+    z-index: 1000;
 }
 
 

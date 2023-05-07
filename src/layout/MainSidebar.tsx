@@ -47,7 +47,7 @@ const sidebarItems = [
         children: [
             { to: "/docs/components/breadcrumb", label: "Breadcrumb"},
             { to: "/docs/components/footer", label: "Footer"},
-            { to: "/docs/components/sidenav", label: "Sidenav"},
+            { to: "/docs/components/sidebar", label: "Sidebar"},
             { to: "/docs/navigation/navbar", label: "Navigation"},
             { to: "/docs/components/tabs", label: "Tabs"}
         ]

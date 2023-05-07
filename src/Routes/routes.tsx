@@ -18,6 +18,7 @@ import ModalPage from "@app/pages/docs/ModalPage/ModalPage.tsx";
 import MultiModalPage from "@app/pages/docs/MultiModalPage/MultiModalPage.tsx";
 import CalendarPage from "@app/pages/docs/CalendarPage/CalendarPage.tsx";
 import TablePage from "@app/pages/docs/Data/TablePage/TablePage.tsx";
+import SidebarPage from "@app/pages/docs/SidebarPage/SidebarPage.tsx";
 
 const routes = createBrowserRouter([
     {
@@ -33,6 +34,7 @@ const routes = createBrowserRouter([
             { path: "/docs/installation", element: <Installation />},
 
             { path: "/docs/navigation/navbar", element: <NavbarPage />},
+            { path: "/docs/components/sidebar", element: <SidebarPage />},
             { path: "/docs/forms/overview", element: <FormPageOverview />},
             { path: "/docs/forms/input-group", element: <InputGroupPage />},
             { path: "/docs/forms/input", element: <InputPage />},

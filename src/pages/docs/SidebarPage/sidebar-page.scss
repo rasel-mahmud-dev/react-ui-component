@@ -1,0 +1,12 @@
+.test-sidebar{
+  background: #ffffff;
+  border: 1px solid #e1e1e1;
+  width: 200px;
+
+  .collapse-item{
+    padding: 4px 30px;
+    a{
+      margin-left: 40px;
+    }
+  }
+}

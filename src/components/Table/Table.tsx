@@ -1,24 +1,22 @@
-import React, {FC, HTMLAttributes, useEffect, useState} from "react";
+import React, {FC, HTMLAttributes, ReactElement, useEffect, useState} from "react";
 import Thead from "./Thead";
 import Tbody from "./Tbody";
 
 import "./table.scss";
 
+export type Data = Pick<Column, "title" | "id">
+
+export  type DateKey = keyof Data
+
 export interface Column extends HTMLAttributes<HTMLElement> {
-    id?: string;
+    id: string;
     title: string;
-    dataIndex?: string;
+    dataIndex: string;
     className?: string;
     colWidth?: number;
-    sorter?: (args1: any, args2: any) => any;
-    render?: (value: any, data: any) => React.ReactNode;
+    sorter?: (args1: DateKey, args2: DateKey) => number;
+    render?: (value: DateKey, data: Data) => ReactElement | string
 }
-
-
-interface Data extends Pick<Column, "title">, Pick<Column, "id">{
-
-}
-
 
 
 interface TableProps extends HTMLAttributes<HTMLTableElement> {
@@ -30,14 +28,22 @@ interface TableProps extends HTMLAttributes<HTMLTableElement> {
     fixed?: boolean
 }
 
-interface State{
+interface State {
     items: Data[],
     order: number,
     sortedField?: string
 }
 
 const Table: FC<TableProps> = (props) => {
-    const {theadClass, tbodyClass, className, dataSource, columns, fixed, scroll, pagination} = props;
+    const {
+        theadClass,
+        tbodyClass,
+        className,
+        dataSource,
+        columns,
+        fixed,
+        scroll
+    } = props;
 
     const fixedTable = {maxHeight: fixed ? 500 : "auto", minWidth: 0};
 
@@ -68,15 +74,35 @@ const Table: FC<TableProps> = (props) => {
         fixedTable.minWidth = scroll.x;
     }
 
-    function handleSort(compareFn: (args1: any, args2: any) => void, column: any) {
+
+
+    function handleSort(compareFn: (args1: DateKey, args2: DateKey) => void, column: Column) {
         if (!compareFn) return;
 
-        let list: any = state.items;
-        if (state.order) {
+        let list: Data[] = state.items;
+        const key = column.dataIndex as DateKey
 
-            list = list.sort((a: any, b: any) => compareFn(a[column.dataIndex], b[column.dataIndex]));
+        if (state.order) {
+            list = list.sort(function (a, b) {
+                if (a[key] > b[key]) {
+                    return 1
+                } else if (a[key] < b[key]) {
+                    return -1
+                } else {
+                    return 0
+                }
+            });
+
         } else {
-            list = list.sort((a: any, b: any) => compareFn(b[column.dataIndex], a[column.dataIndex]));
+            list = list.sort(function (a, b) {
+                if (a[key] < b[key]) {
+                    return 1
+                } else if (a[key] > b[key]) {
+                    return -1
+                } else {
+                    return 0
+                }
+            });
         }
 
         setState((prevState) => ({
@@ -115,3 +141,17 @@ const Table: FC<TableProps> = (props) => {
 };
 
 export default Table;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

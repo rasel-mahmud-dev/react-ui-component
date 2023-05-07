@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export interface CollapseItemProps {
     icon?: (isActive: boolean)=>React.ReactNode
-    prefixIcon?: React.ReactNode
+    prefixIcon?: React.ReactElement
     isActive?: boolean
     label: ((isActive: boolean)=> React.ReactNode) | string
     className?: string

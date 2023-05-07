@@ -33,7 +33,6 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement>{
 }
 
 
-
 const Button: FC<ButtonProps> = (props) => {
     const {
         color,

@@ -12,18 +12,20 @@ import {
     TbComponents
 } from "react-icons/all";
 import useGetActiveHash from "@app/hooks/useGetActiveHash.ts";
-import Avatar from "@app/components/Avatar/Avatar.tsx";
+
 import Collapse from "@app/components/Collapse/Collapse.tsx";
 import MdbButton from "@app/components/MBD_Button/Button.tsx";
 import {BiCode} from "react-icons/bi";
 import CodeView from "@app/components/CodeView/CodeView.tsx";
 import DocsPageLayout from "@app/pages/docs/DocsPageLayout.tsx";
-import Sidebar from "@app/components/Sidebar/Sidebar.tsx";
+import Sidebar, {SidebarItem} from "@app/components/Sidebar/Sidebar.tsx";
+
+import "./sidebar-page.scss"
 
 const SidebarPage = () => {
 
 
-    const sidebarItems = [
+    const sidebarItems: SidebarItem[] = [
         {
             to: "/",
             label: "Home",
@@ -113,15 +115,21 @@ const SidebarPage = () => {
 
     const {activeHash, location} = useGetActiveHash()
 
-    return (
-        <DocsPageLayout pageTitle="Sidebar" overviewContent={overviewContent} activeHash={activeHash}
-                        location={location}>
 
+
+
+
+    return (
+        <DocsPageLayout
+            pageTitle="Sidebar"
+            overviewContent={[]}
+            activeHash={activeHash}
+            location={location}>
 
             <section id="avatar">
-                <h4 className="pb-4 mt-4">Avatar</h4>
+
                 <div className="">
-                    <Sidebar items={sidebarItems} />
+                    <Sidebar className="test-sidebar" items={sidebarItems} />
                 </div>
                 <div className="border-t pb-4 mt-4">
                     <Collapse initialExpand={[]}>
