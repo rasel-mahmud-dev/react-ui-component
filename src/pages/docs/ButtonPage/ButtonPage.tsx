@@ -7,6 +7,7 @@ import useGetActiveHash from "@app/hooks/useGetActiveHash";
 import CodeView from "@app/components/CodeView/CodeView.tsx";
 import DocsPageLayout from "@app/pages/docs/DocsPageLayout.tsx";
 import Collapse from "@app/components/Collapse/Collapse.tsx";
+import SwipeAbleButton from "@app/components/SwipeAbleButton/SwipeAbleButton";
 
 
 const overviewContent = [
@@ -14,6 +15,7 @@ const overviewContent = [
     {label: "MDB button", hash: "#mdb-button"},
     {label: "Neutral button", hash: "#neutral-button"},
     {label: "Outline button", hash: "#outline-button"},
+    {label: "Swipe Able button", hash: "#swipeable-button"},
     {label: "Rounded button", hash: "#rounded-button"},
     {label: "Link button", hash: "#link-button"},
     {label: "With Icon button", hash: "#with-icon-button"},
@@ -174,6 +176,46 @@ const ButtonPage = () => {
                         </div>
                     </section>
 
+
+{/*       Swipe able button */}
+<section id="outline-button">
+                        <h4 className="mt-8 mb-2">MDB Outline Button</h4>
+                        <div className="grid grid-cols-4 w-max gap-2">
+                            <MdbButton outline={true}>Button</MdbButton>
+                            <MdbButton outline={true} className="text-white" color="secondary">Button</MdbButton>
+                            <MdbButton outline={true} className="text-white" color="success">Button</MdbButton>
+                            <MdbButton outline={true} color="danger">Button</MdbButton>
+                            <MdbButton outline={true} color="info">Button</MdbButton>
+                            <MdbButton outline={true} color="warning">Button</MdbButton>
+                            <MdbButton outline={true} color="dark">Button</MdbButton>
+                            <MdbButton outline={true} color="light">Button</MdbButton>
+                        </div>
+                        <div className="border-t pb-4 mt-4">
+                            <Collapse initialExpand={[0]}>
+                                <Collapse.Item label={(isOpen: boolean)=>(
+                                    <MdbButton text className="flex items-center gap-x-1">
+                                        <BiCode fontSize={18} />
+                                        <span className="text-red-400">{isOpen ? "Hide" : "Show"} Code</span>
+                                    </MdbButton>
+                                )}>
+                                    <CodeView code={`
+<MdbButton outline={true}>Button</MdbButton>
+<MdbButton outline={true} className="text-white" color="secondary">Button</MdbButton>
+<MdbButton outline={true} className="text-white" color="success">Button</MdbButton>
+<MdbButton outline={true} color="danger">Button</MdbButton>
+<MdbButton outline={true} color="info">Button</MdbButton>
+<MdbButton outline={true} color="warning">Button</MdbButton>
+<MdbButton outline={true} color="dark">Button</MdbButton>
+<MdbButton outline={true} color="light">Button</MdbButton>
+`}
+                                              lang="html"
+                                    />
+                                </Collapse.Item>
+
+                            </Collapse>
+                        </div>
+                    </section>
+
                    <section id="rounded-button">
                        <h4 className="mt-8 mb-2">MDB Rounded Button</h4>
                        <div className="grid grid-cols-4 w-max gap-2">
@@ -213,6 +255,92 @@ const ButtonPage = () => {
                        </div>
 
                    </section>
+
+
+
+            <section id="outline-button">
+                <h4 className="mt-8 mb-2">MDB Outline Button</h4>
+                <div className="grid grid-cols-4 w-max gap-2">
+                    <MdbButton outline={true}>Button</MdbButton>
+                    <MdbButton outline={true} className="text-white" color="secondary">Button</MdbButton>
+                    <MdbButton outline={true} className="text-white" color="success">Button</MdbButton>
+                    <MdbButton outline={true} color="danger">Button</MdbButton>
+                    <MdbButton outline={true} color="info">Button</MdbButton>
+                    <MdbButton outline={true} color="warning">Button</MdbButton>
+                    <MdbButton outline={true} color="dark">Button</MdbButton>
+                    <MdbButton outline={true} color="light">Button</MdbButton>
+                </div>
+                <div className="border-t pb-4 mt-4">
+                    <Collapse initialExpand={[0]}>
+                        <Collapse.Item label={(isOpen: boolean)=>(
+                            <MdbButton text className="flex items-center gap-x-1">
+                                <BiCode fontSize={18} />
+                                <span className="text-red-400">{isOpen ? "Hide" : "Show"} Code</span>
+                            </MdbButton>
+                        )}>
+                            <CodeView code={`
+<MdbButton outline={true}>Button</MdbButton>
+<MdbButton outline={true} className="text-white" color="secondary">Button</MdbButton>
+<MdbButton outline={true} className="text-white" color="success">Button</MdbButton>
+<MdbButton outline={true} color="danger">Button</MdbButton>
+<MdbButton outline={true} color="info">Button</MdbButton>
+<MdbButton outline={true} color="warning">Button</MdbButton>
+<MdbButton outline={true} color="dark">Button</MdbButton>
+<MdbButton outline={true} color="light">Button</MdbButton>
+`}
+                                      lang="html"
+                            />
+                        </Collapse.Item>
+
+                    </Collapse>
+                </div>
+            </section>
+
+
+
+            {/*       Swipe able button */}
+            <section id="swipeable-button">
+                <h4 className="mt-8 mb-2">Swipe Able Button</h4>
+                <div className="grid grid-cols-4 w-max gap-2">
+                    <SwipeAbleButton render={(activeIndex: number) => (
+                            <>
+                                <button className={`btn-${activeIndex === 0 ? "secondary" : ""}`}>Our Bootcamp</button>
+                                <button className={`btn-${activeIndex === 1 ? "secondary" : ""}`}>Our Course</button>
+                            </>
+                        )}
+                     activeIndex={0}
+                     />
+                </div>
+
+                <div className="border-t pb-4 mt-4">
+                    <Collapse initialExpand={[0]}>
+                        <Collapse.Item label={(isOpen: boolean)=>(
+                            <MdbButton text className="flex items-center gap-x-1">
+                                <BiCode fontSize={18} />
+                                <span className="text-red-400">{isOpen ? "Hide" : "Show"} Code</span>
+                            </MdbButton>
+                        )}>
+                            <CodeView code={`
+                            
+                            <SwipeAbleButton 
+                                render={(activeIndex: number) => (
+                                    <>
+                                        <button className={"btn-{activeIndex === 0 ? "secondary" : "}>Our Bootcamp</button>
+                                        <button className={"btn-{activeIndex === 1 ? "secondary" : "}>Our Course</button>
+                                    </>
+                                )}
+                             activeIndex={0}
+                             />
+
+`}
+                                      lang="html"
+                            />
+                        </Collapse.Item>
+
+                    </Collapse>
+                </div>
+
+            </section>
 
                     <section id="link-button">
                     <h4 className="mt-8 mb-2">MDB Link Button</h4>

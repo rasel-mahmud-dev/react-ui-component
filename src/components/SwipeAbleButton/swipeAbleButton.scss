@@ -1,0 +1,44 @@
+.swipeable-btn-container {
+  --item-width: 140px;
+
+  background-color: #e9f0ff;
+  padding: 8px 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+  position: relative;
+  overflow: hidden;
+
+  .overlay {
+    position: absolute;
+    background-color: #598eff;
+    width: var(--item-width);
+    height: 34px;
+    border-radius: 8px;
+    z-index: 99;
+    transition: all .4s ease;
+
+    &.position-0 {
+
+      left: 0%;
+    }
+
+    &.position-1 {
+      left: var(--item-width);
+    }
+
+  }
+  .swipeable-btn {
+    padding: 5px 10px;
+    position: relative;
+    z-index: 100;
+    transition: color .4s ease;
+
+    &.active-btn {
+      color: white;
+      border-radius: 10px;
+
+    }
+  }
+}
