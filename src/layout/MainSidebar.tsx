@@ -89,6 +89,7 @@ const sidebarItems = [
         prefixIcon:  <BsDatabase fontSize={14} />,
         children: [
             { to: "/docs/components/input", label: "Buttons"},
+            { to: "/docs/components/data/table", label: "Table"},
         ]
     },
     {

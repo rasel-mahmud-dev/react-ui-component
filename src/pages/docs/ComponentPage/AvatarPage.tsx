@@ -7,6 +7,7 @@ import Collapse from "@app/components/Collapse/Collapse.tsx";
 import MdbButton from "@app/components/MBD_Button/Button.tsx";
 import {BiCode} from "react-icons/bi";
 import CodeView from "@app/components/CodeView/CodeView.tsx";
+import ApiSection from "@app/components/ApiSection/ApiSection.tsx";
 
 
 const usersList = [
@@ -228,13 +229,9 @@ const usersList = [
 
 
 
-            <section id="api" className="">
-                <div className="api-section">
-                <h4 className=" mt-4 page-subtitle">API</h4>
-                </div>
+            <ApiSection>
 
-
-            </section>
+            </ApiSection>
         </DocsPageLayout>
     );
 };
