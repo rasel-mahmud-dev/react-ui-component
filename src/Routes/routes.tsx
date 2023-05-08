@@ -1,24 +1,25 @@
 import {createBrowserRouter} from "react-router-dom";
 import Main from "../layout/Main.tsx";
-import ButtonPage from "@app/pages/docs/ButtonPage/ButtonPage";
-import CollapsePage from "@app/pages/docs/CollapsePage/CollapsePage";
-import Installation from "@app/pages/docs/Installation/Installation.tsx";
-import TabsPage from "@app/pages/docs/TabsPage.tsx";
-import HomePage from "@app/pages/docs/HomePage.tsx";
-import NavbarPage from "@app/pages/docs/NavbarPage/NavbarPage.tsx";
-import Login from "@app/pages/auth/Login.tsx";
-import InputPage from "@app/pages/docs/Forms/InputPage/InputPage.tsx";
-import FormPageOverview from "@app/pages/docs/Forms/FormPageOverview/FormPageOverview.tsx";
-import InputGroupPage from "@app/pages/docs/Forms/InputGroupPage/InputGroupPage.tsx";
-import AvatarPage from "@app/pages/docs/ComponentPage/AvatarPage.tsx";
-import NotFoundRoute from "@app/components/NotFoundRoute/NotFoundRoute.tsx";
-import AutoCompletePages from "@app/pages/docs/Forms/SearchInputPages/SearchInputPages";
-import SearchInputPages from "@app/pages/docs/Forms/SearchInputPages/SearchInputPages";
-import ModalPage from "@app/pages/docs/ModalPage/ModalPage.tsx";
-import MultiModalPage from "@app/pages/docs/MultiModalPage/MultiModalPage.tsx";
-import CalendarPage from "@app/pages/docs/CalendarPage/CalendarPage.tsx";
-import TablePage from "@app/pages/docs/Data/TablePage/TablePage.tsx";
-import SidebarPage from "@app/pages/docs/SidebarPage/SidebarPage.tsx";
+import {lazy} from "react";
+
+const ButtonPage  = lazy(()=>import( "@app/pages/docs/ButtonPage/ButtonPage"));
+const CollapsePage  = lazy(()=>import( "@app/pages/docs/CollapsePage/CollapsePage"));
+const Installation  = lazy(()=>import( "@app/pages/docs/Installation/Installation.tsx"));
+const TabsPage  = lazy(()=>import( "@app/pages/docs/TabsPage.tsx"));
+const HomePage  = lazy(()=>import( "@app/pages/docs/HomePage.tsx"));
+const NavbarPage  = lazy(()=>import( "@app/pages/docs/NavbarPage/NavbarPage.tsx"));
+const Login  = lazy(()=>import( "@app/pages/auth/Login.tsx"));
+const InputPage  = lazy(()=>import( "@app/pages/docs/Forms/InputPage/InputPage.tsx"));
+const FormPageOverview  = lazy(()=>import( "@app/pages/docs/Forms/FormPageOverview/FormPageOverview.tsx"));
+const InputGroupPage  = lazy(()=>import( "@app/pages/docs/Forms/InputGroupPage/InputGroupPage.tsx"));
+const AvatarPage  = lazy(()=>import( "@app/pages/docs/ComponentPage/AvatarPage.tsx"));
+const NotFoundRoute  = lazy(()=>import( "@app/components/NotFoundRoute/NotFoundRoute.tsx"));
+const SearchInputPages  = lazy(()=>import( "@app/pages/docs/Forms/SearchInputPages/SearchInputPages"));
+const ModalPage  = lazy(()=>import( "@app/pages/docs/ModalPage/ModalPage.tsx"));
+const MultiModalPage  = lazy(()=>import( "@app/pages/docs/MultiModalPage/MultiModalPage.tsx"));
+const CalendarPage  = lazy(()=>import( "@app/pages/docs/CalendarPage/CalendarPage.tsx"));
+const TablePage  = lazy(()=>import( "@app/pages/docs/Data/TablePage/TablePage.tsx"));
+const SidebarPage  = lazy(()=>import( "@app/pages/docs/SidebarPage/SidebarPage.tsx"));
 
 const routes = createBrowserRouter([
     {

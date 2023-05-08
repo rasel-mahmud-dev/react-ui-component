@@ -35,10 +35,10 @@ const SidebarPage = () => {
             label: "Getting Start",
             prefixIcon: <HiOutlineDownload fontSize={16}/>,
             children: [
-                {to: "/docs", label: "About RSL UI", icon: <FcInfo fontSize={16}/>},
+                {to: "/docs", label: "About RSL UI", icon: (_isActive: boolean)=> <FcInfo fontSize={16}/>},
                 {to: "/docs/installation", label: "Installation"},
                 {to: "/docs/installation", label: "Optimization"},
-                {to: "/docs/installation", label: "Vite", icon: <SiVite fontSize={14}/>},
+                {to: "/docs/installation", label: "Vite", icon: (_isActive: boolean)=> <SiVite fontSize={14}/>},
                 {to: "/docs/installation", label: "Tutorial"},
             ]
 

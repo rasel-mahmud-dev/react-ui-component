@@ -112,14 +112,14 @@ const Calendar = ({className = "", onChange, value}) => {
 
 
     function jumpNextMonth() {
-        let updatedCurrentDate = new Date(currentDate)
+        const updatedCurrentDate = new Date(currentDate)
         updatedCurrentDate.setMonth(updatedCurrentDate.getMonth() + 1)
         setCurrentDate(updatedCurrentDate)
     }
 
 
     function jumpPrevMonth() {
-        let updatedCurrentDate = new Date(currentDate)
+        const updatedCurrentDate = new Date(currentDate)
         updatedCurrentDate.setMonth(updatedCurrentDate.getMonth() - 1)
         setCurrentDate(updatedCurrentDate)
     }
@@ -138,7 +138,7 @@ const Calendar = ({className = "", onChange, value}) => {
     }, [currentDate]);
 
 
-    function handleSelectDate(day) {
+    function handleSelectDate(day: any) {
         let d = day.toDate()
         onChange && onChange(d)
         setDaySelected(day)

@@ -1,7 +1,8 @@
-import React, {useEffect, useRef} from 'react';
+import React, {Suspense, useEffect, useRef} from 'react';
 import {Outlet} from "react-router-dom";
 import Navigation from "../components/Navigation/Navigation.tsx";
 import MainSidebar from "@app/layout/MainSidebar.tsx";
+import Loader from "@app/components/Loader/Loader.tsx";
 
 const Main = () => {
     const navigationRef = useRef<HTMLDivElement>(null)
@@ -22,7 +23,9 @@ const Main = () => {
                 <MainSidebar />
 
                 <div className="main-content">
-                    <Outlet />
+                    <Suspense fallback={<Loader className="fixed-center" />}>
+                        <Outlet />
+                    </Suspense>
                 </div>
 
             </div>

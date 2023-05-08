@@ -15,7 +15,7 @@ export interface Column extends HTMLAttributes<HTMLElement> {
     className?: string;
     colWidth?: number;
     sorter?: (args1: DateKey, args2: DateKey) => number;
-    render?: (value: DateKey, data: Data) => ReactElement | string
+    render?: (value: any, data: Data) => ReactElement | string | any
 }
 
 

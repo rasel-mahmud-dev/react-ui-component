@@ -3,7 +3,7 @@ import useGetActiveHash from "@app/hooks/useGetActiveHash.ts";
 import DocsPageLayout from "@app/pages/docs/DocsPageLayout.tsx";
 import "./style.scss";
 import React, {Suspense, useState} from "react";
-import Loading from "@app/components/Loading/Loading.tsx";
+import Loader from "@app/components/Loader/Loader.tsx";
 
 import {CSSTransition} from "react-transition-group"
 import Button from "@app/components/MBD_Button/Button.tsx";
@@ -51,7 +51,7 @@ const MultiModalPage = () => {
 
                             <CSSTransition unmountOnExit={true} in={modalId === 2} timeout={400} classNames="modal_content">
                                 <div>
-                                    <Suspense fallback={<Loading/>}>
+                                    <Suspense fallback={<Loader/>}>
                                         <AddUserModal
                                             setModalId={setModalId}
                                         />
@@ -78,7 +78,7 @@ const MultiModalPage = () => {
 
 import "./style.scss";
 import React, {Suspense, useState} from "react";
-import Loading from "@app/components/Loading/Loading.tsx";
+import Loading from "@app/components/Loader/Loader.tsx";
 
 import {CSSTransition} from "react-transition-group"
 import Button from "@app/components/MBD_Button/Button.tsx";

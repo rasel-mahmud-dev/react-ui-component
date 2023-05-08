@@ -8,9 +8,8 @@ export interface SidebarItem{
     to?: string,
     label: string,
     prefixIcon?:  React.ReactElement | any,
-    icon?: (isActive: boolean)=>React.ReactElement,
+    icon?: (isActive: boolean) => JSX.Element,
     children?: SidebarItem[]
-
 }
 
 
@@ -29,8 +28,14 @@ const Sidebar: FC<Props> = (props) => {
             <div className={className}>
 
                 <Collapse initialExpand={[1]}>
-                    {items.map(item=>(
-                        <Collapse.Item onClick={()=>onClick && onClick( item)} className="text-dark-200 !mx-2 rounded-md" label={item.label} prefixIcon={item.prefixIcon} icon={(isActive: boolean)=> !isActive ? <BiChevronDown /> : <BiChevronUp /> }>
+                    {items.map((item: SidebarItem)=>(
+                        <Collapse.Item
+                            onClick={()=>onClick && onClick( item)}
+                            className="text-dark-200 !mx-2 rounded-md"
+                            label={item.label}
+                            prefixIcon={item.prefixIcon}
+                            icon={(isActive: boolean)=> !isActive ? <BiChevronDown /> : <BiChevronUp /> }
+                        >
                             { item.children  &&  (
                                 <div className="text-sm">
                                     {

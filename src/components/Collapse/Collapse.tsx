@@ -38,7 +38,7 @@ const Collapse:  CustomFC<Props> = (props) => {
                     <CollapseItem onToggle={()=>handleToggle(index)} isActive={activeItems.includes(index)} key={index} {...item.props}></CollapseItem>
 
             )) : children && typeof children === "object" && (
-                <CollapseItem onToggle={()=>handleToggle(0)} isActive={activeItems.includes(0)} key={0} {...children.props}>
+                <CollapseItem onToggle={()=>handleToggle(0)} isActive={activeItems.includes(0)} key={0} {...(children as ReactElement).props}>
 
                 </CollapseItem>
             ) }
